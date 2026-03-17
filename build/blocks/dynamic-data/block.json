@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "formello/dynamic-data",
+  "title": "Dynamic Data",
+  "description": "Display dynamic data passed via events (e.g. from Advanced Button).",
+  "category": "formello",
+  "ancestor": [
+    "formello/form"
+  ],
+  "icon": "database",
+  "textdomain": "formello",
+  "attributes": {
+    "dataKey": {
+      "type": "string",
+      "default": ""
+    },
+    "renderType": {
+      "type": "string",
+      "default": "text",
+      "enum": [
+        "text",
+        "image"
+      ]
+    },
+    "tagName": {
+      "type": "string",
+      "default": "span"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Dynamic Data"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalLetterSpacing": true
+    },
+    "__experimentalBorder": {
+      "radius": true,
+      "width": true,
+      "color": true,
+      "style": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
+}
