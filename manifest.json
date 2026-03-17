@@ -1,0 +1,14 @@
+{
+    "name": "Formarity",
+    "version": "2.7.0",
+    "description": "Lightweight Gutenberg contact form builder, ported as Jankx extension.",
+    "author": "Tropicalista / Jankx Team",
+    "extension_id": "formarity",
+    "caller": {
+        "file": "FormarityExtension.php",
+        "class": "Jankx\\Extensions\\FormarityExtension",
+        "method": "register_hooks"
+    },
+    "auto_activate": true,
+    "enabled": true
+}
