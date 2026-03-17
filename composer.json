@@ -1,0 +1,16 @@
+{
+    "name": "jankx/formarity",
+    "description": "Formarity extension for Jankx theme",
+    "type": "jankx-extension",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Tropicalista"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Formello\\": "includes/"
+        }
+    }
+}
