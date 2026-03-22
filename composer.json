@@ -8,6 +8,11 @@
             "name": "Tropicalista"
         }
     ],
+    "require": {
+        "php": ">=7.4",
+        "rakit/validation": "^1.4",
+        "katzgrau/klogger": "^1.0"
+    },
     "autoload": {
         "psr-4": {
             "Formello\\": "includes/"

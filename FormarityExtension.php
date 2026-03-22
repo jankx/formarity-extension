@@ -168,6 +168,42 @@ class FormarityExtension extends AbstractExtension
         // 11. DB activation is now handled by the install() lifecycle method
         //     in ThemeExtensionManager.
         // ------------------------------------------------------------------
+
+        // ------------------------------------------------------------------
+        // 12. Listen for Jankx Admin Form Actions
+        // ------------------------------------------------------------------
+        add_action('jankx/admin/handle_action/save_formarity_settings', [$this, 'handleAdminFormAction'], 10, 2);
+    }
+
+    /**
+     * Example handler for admin form submissions originating from the Jankx FormHandler
+     *
+     * @param array $data The $_POST data
+     * @param \Jankx\Foundation\Application $app
+     */
+    public function handleAdminFormAction(array $data, $app): void
+    {
+        // 1. Verify Security
+        if (!wp_verify_nonce($data['_wpnonce'] ?? '', 'save_formarity_settings')) {
+            wp_die(__('Security check failed', 'formello'));
+        }
+
+        // 2. Check Permission
+        if (!current_user_can('manage_options')) {
+            wp_die(__('You do not have permission to perform this action.', 'formello'));
+        }
+
+        // 3. Process Data
+        $settings = $data['formarity_settings'] ?? [];
+        update_option('formarity_general_settings', $settings);
+
+        // 4. Feedback
+        add_action('admin_notices', function () {
+            printf(
+                '<div class="notice notice-success is-dismissible"><p>%s</p></div>',
+                esc_html__('Formarity settings have been saved.', 'formello')
+            );
+        });
     }
 
     // -------------------------------------------------------------------------
